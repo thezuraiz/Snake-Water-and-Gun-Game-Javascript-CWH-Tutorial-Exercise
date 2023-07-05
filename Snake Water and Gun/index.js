@@ -4,6 +4,39 @@ const randomChar = () => {
     characters[Math.floor(Math.random() * characters.length)];
   return randomCharacter;
 };
+
+const match = (cpu) => {
+  let player = prompt("Enter Your Option \n W G S");
+  
+  if (cpu == "W" && player == "S") {
+    alert(`You Lost  Computer Play: ${randomChar()}`);
+    computerScore++
+  }
+  else if (cpu == "W" && player == "G") {
+    alert(`You Lost  Computer Play: ${randomChar()}`);
+    computerScore++
+  }
+  else if (cpu == "G" && player == "W") {
+    counter++
+    alert(`You Won..! Your Score ${counter}`);
+  }
+  else if (cpu == "G" && player == "S") {
+    alert(`You Lost  Computer Play: ${randomChar()}`);
+    computerScore++
+  }
+  else if (cpu == "S" && player == "W") {
+    alert(`You Lost  Computer Play: ${randomChar()}`);
+    computerScore++
+  }
+  else if (cpu == "S" && player == "G") {
+    counter++
+    alert(`You Won..! Your Score ${counter}`);
+  }
+  else {
+    alert("Tie..!")
+  }
+}
+
 let flag = true,
   counter = 0,
   gameCounter = 0,
@@ -11,14 +44,8 @@ let flag = true,
 while (flag) {
   gameCounter++;
   document.write(` Computer Guess is ${randomChar()} ||`);
-  let player = prompt("Enter Your Option \n W G S");
-  if (randomChar() == player) {
-    alert("You Win");
-    counter++;
-  } else {
-    alert(`Wrong Guess..! Computer Play : ${randomChar()}`);
-    computerScore++;
-  }
+  
+  match(randomChar());
   flag = confirm("Do You Want to play again..?");
 }
 
